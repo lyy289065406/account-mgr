@@ -1,0 +1,52 @@
+# How to use :
+# docker-compose up -d
+# docker-compose down
+# --------------------------------------------------------------------------------
+
+version: '2'
+services:
+  mysql:
+    hostname: MYSQL
+    container_name: MYSQL_AM
+    image: mysql:8.0.22
+    environment: 
+      MYSQL_ROOT_PASSWORD: 123456
+    volumes:
+      - ./env/mysql/data/:/var/lib/mysql/
+    ports:
+      - 3306:3306
+    networks: 
+      vpn:
+        ipv4_address: 172.168.60.2
+    restart: unless-stopped
+
+  maven:
+    hostname: MAVEN
+    container_name: MAVEN_AM
+    build:
+      context: ./env/maven
+      dockerfile: ./Dockerfile
+    volumes:
+      - ./ruoyi:/opt/ruoyi/
+    ports:
+      - 8888:80
+    stdin_open: true
+    tty: true
+    privileged: true
+    entrypoint: ["sh"]
+    networks: 
+      vpn:
+        ipv4_address: 172.168.60.3
+    restart: on-failure
+
+
+networks:
+  vpn:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+        - subnet:  172.168.60.0/24
+          gateway: 172.168.60.1
+    
+    

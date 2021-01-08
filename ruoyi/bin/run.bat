@@ -1,6 +1,6 @@
 @echo off
 echo.
-echo [信息] 运行Web工程。
+echo [INFO] run the project.
 echo.
 
 cd %~dp0

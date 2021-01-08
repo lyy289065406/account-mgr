@@ -1,6 +1,6 @@
 @echo off
 echo.
-echo [信息] 打包Web工程，生成war/jar包文件。
+echo [INFO] build the project for generating wars/jars.
 echo.
 
 %~d0
