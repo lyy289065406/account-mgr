@@ -4,7 +4,7 @@ FROM mysql:8.0.22
 RUN sed -i s@/deb.debian.org/@/mirrors.aliyun.com/@g /etc/apt/sources.list
 RUN apt-get clean && \
     apt-get update -y && \
-    apt install -y wget
+    apt install -y procps wget
 
 
 # 安装 JDK 1.8 （清华源）

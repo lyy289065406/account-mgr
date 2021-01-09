@@ -1,3 +1,5 @@
+echo "[INFO] clean old packages."
 source /etc/profile
-cd ..
+cd /opt/ruoyi
+
 mvn clean

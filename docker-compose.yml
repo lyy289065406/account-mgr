@@ -6,8 +6,8 @@
 version: '2'
 services:
   ruoyi:
-    hostname: RUOYI
-    container_name: RUOYI_AM
+    hostname: AM_RUOYI
+    container_name: AM_RUOYI
     build:
       context: ./env
       dockerfile: ./Dockerfile
@@ -17,7 +17,7 @@ services:
       - ./env/mysql/data/:/var/lib/mysql/
       - ./ruoyi:/opt/ruoyi/
     ports:
-      - 8888:80
+      - 8088:80
       - 3306:3306
     networks: 
       vpn:
