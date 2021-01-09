@@ -5,39 +5,24 @@
 
 version: '2'
 services:
-  mysql:
-    hostname: MYSQL
-    container_name: MYSQL_AM
-    image: mysql:8.0.22
+  ruoyi:
+    hostname: RUOYI
+    container_name: RUOYI_AM
+    build:
+      context: ./env
+      dockerfile: ./Dockerfile
     environment: 
       MYSQL_ROOT_PASSWORD: 123456
     volumes:
       - ./env/mysql/data/:/var/lib/mysql/
+      - ./ruoyi:/opt/ruoyi/
     ports:
+      - 8888:80
       - 3306:3306
     networks: 
       vpn:
         ipv4_address: 172.168.60.2
     restart: unless-stopped
-
-  maven:
-    hostname: MAVEN
-    container_name: MAVEN_AM
-    build:
-      context: ./env/maven
-      dockerfile: ./Dockerfile
-    volumes:
-      - ./ruoyi:/opt/ruoyi/
-    ports:
-      - 8888:80
-    stdin_open: true
-    tty: true
-    privileged: true
-    entrypoint: ["sh"]
-    networks: 
-      vpn:
-        ipv4_address: 172.168.60.3
-    restart: on-failure
 
 
 networks:
