@@ -4,7 +4,7 @@ if(!$script_name) {
     Write-Host "Usage: ./exec.ps1 [script_name]"
     Write-Host "script_name list :"
     Write-Host "  (1) up          :   build and up docker environment"
-    Write-Host "  (2) init        :   init database"
+    Write-Host "  (2) init/db     :   init database"
     Write-Host "  (3) cln/clean   :   mvn clean"
     Write-Host "  (4) pkg/package :   mvn package"
     Write-Host "  (5) run/start   :   run the application"
@@ -15,7 +15,7 @@ if(!$script_name) {
 } elseif($script_name -eq "up") {
     docker-compose up -d
 
-} elseif($script_name -eq "init") {
+} elseif($script_name -eq "init" -Or $script_name -eq "db") {
     docker exec -u mysql ACCOUNT_MGR /bin/bash -c "mysql -uroot -p123456 -e 'source /var/sql/init.sql'"
     docker exec -u mysql ACCOUNT_MGR /bin/bash -c "mysql -uroot -p123456 -e 'source /opt/ruoyi/sql/ry_20201214.sql'"
     docker exec -u mysql ACCOUNT_MGR /bin/bash -c "mysql -uroot -p123456 -e 'source /opt/ruoyi/sql/quartz.sql'"
