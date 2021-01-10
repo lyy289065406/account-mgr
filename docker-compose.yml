@@ -6,8 +6,8 @@
 version: '2'
 services:
   ruoyi:
-    hostname: AM_RUOYI
-    container_name: AM_RUOYI
+    hostname: ACCOUNT_MGR
+    container_name: ACCOUNT_MGR
     build:
       context: ./env
       dockerfile: ./Dockerfile
@@ -15,7 +15,7 @@ services:
       MYSQL_ROOT_PASSWORD: 123456
     volumes:
       - ./env/mysql/data/:/var/lib/mysql/
-      - ./env/mysql/init.sql:/tmp/init.sql
+      - ./env/mysql/sql/:/tmp/sql/
       - ./env/maven/repo/:/root/.m2/repository
       - ./ruoyi/:/opt/ruoyi/
       - ./bin/:/run/ruoyi/

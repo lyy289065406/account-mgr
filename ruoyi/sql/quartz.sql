@@ -1,4 +1,4 @@
-use am_ruoyi;
+use account_mgr;
 
 -- ----------------------------
 -- 1、存储每一个已配置的 jobDetail 的详细信息

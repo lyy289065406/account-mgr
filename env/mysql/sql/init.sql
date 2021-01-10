@@ -1,4 +1,4 @@
-use mysql;
+USE mysql;
 
 /* 修改 root 用户加密规则 */
 ALTER USER 'root'@'%' IDENTIFIED BY '123456' PASSWORD EXPIRE NEVER;
@@ -10,4 +10,4 @@ ALTER USER 'root'@'%' IDENTIFIED WITH mysql_native_password BY '123456';
 FLUSH PRIVILEGES;
 
 /* 创建 ruoyi 数据库 */
-CREATE DATABASE IF NOT EXISTS am_ruoyi DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
+CREATE DATABASE IF NOT EXISTS account_mgr DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
