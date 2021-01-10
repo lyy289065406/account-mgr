@@ -2,14 +2,14 @@ USE account_mgr;
 
 CREATE TABLE IF NOT EXISTS t_account (
     i_id           bigint(20)       not null auto_increment    comment '账号ID',
-    i_user_id      bigint(20)       not null                   comment '外键ID-关联sys_user表',
     s_appname      varchar(64)      default ''                 comment '应用名称',
-    s_site_1       varchar(512)     default ''                 comment '应用站点1',
-    s_site_2       varchar(512)     default ''                 comment '应用站点2',
-    s_site_3       varchar(512)     default ''                 comment '应用站点3',
+    s_site_1       varchar(512)     default ''                 comment '主站URL',
+    s_site_2       varchar(512)     default ''                 comment '子站URL',
+    s_site_3       varchar(512)     default ''                 comment '备用URL',
     s_username     varchar(512)     default ''                 comment '登录账号',
     s_password     varchar(512)     default ''                 comment '登录密码',
     s_query_pwd    varchar(512)     default ''                 comment '查询密码',
+    s_service_pwd  varchar(512)     default ''                 comment '服务密码',
     s_atm_pwd      varchar(512)     default ''                 comment '取款密码',
     s_pay_pwd      varchar(512)     default ''                 comment '支付密码',
     s_graphic_pwd  varchar(512)     default ''                 comment '图形密码',
@@ -24,7 +24,7 @@ CREATE TABLE IF NOT EXISTS t_account (
     s_answer_2     varchar(512)     default ''                 comment '密码提示答案2',
     s_question_3   varchar(512)     default ''                 comment '密码提示问题3',
     s_answer_3     varchar(512)     default ''                 comment '密码提示答案3',
-    s_remark       varchar(512)     default ''                 comment '备注',
-    d_update_time  datetime                                    comment '最后修改时间',
+    s_remark       varchar(2048)    default ''                 comment '备注',
+    d_update_time  datetime         default CURRENT_TIMESTAMP  comment '最后修改时间',
     primary key (i_id)
 ) engine=innodb auto_increment=1 comment = '应用账密表';

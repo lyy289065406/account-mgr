@@ -14,64 +14,70 @@
                     <input name="sAppname" th:field="*{sAppname}" class="form-control" type="text">
                 </div>
             </div>
-            <div class="form-group">
-                <label class="col-sm-3 control-label">应用站点1：</label>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">主站URL：</label>
                 <div class="col-sm-8">
-                    <textarea name="sSite1" class="form-control">[[*{sSite1}]]</textarea>
+                    <input name="sSite1" th:field="*{sSite1}" class="form-control" type="text">
                 </div>
             </div>
-            <div class="form-group">
-                <label class="col-sm-3 control-label">应用站点2：</label>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">子站URL：</label>
                 <div class="col-sm-8">
-                    <textarea name="sSite2" class="form-control">[[*{sSite2}]]</textarea>
+                    <input name="sSite2" th:field="*{sSite2}" class="form-control" type="text">
                 </div>
             </div>
-            <div class="form-group">
-                <label class="col-sm-3 control-label">应用站点3：</label>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">备用URL：</label>
                 <div class="col-sm-8">
-                    <textarea name="sSite3" class="form-control">[[*{sSite3}]]</textarea>
+                    <input name="sSite3" th:field="*{sSite3}" class="form-control" type="text">
                 </div>
             </div>
-            <div class="form-group">
+            <div class="form-group">    
                 <label class="col-sm-3 control-label">登录账号：</label>
                 <div class="col-sm-8">
-                    <textarea name="sUsername" class="form-control">[[*{sUsername}]]</textarea>
+                    <input name="sUsername" th:field="*{sUsername}" class="form-control" type="text">
                 </div>
             </div>
-            <div class="form-group">
+            <div class="form-group">    
                 <label class="col-sm-3 control-label">登录密码：</label>
                 <div class="col-sm-8">
-                    <textarea name="sPassword" class="form-control">[[*{sPassword}]]</textarea>
+                    <input name="sPassword" th:field="*{sPassword}" class="form-control" type="text">
                 </div>
             </div>
-            <div class="form-group">
+            <div class="form-group">    
                 <label class="col-sm-3 control-label">查询密码：</label>
                 <div class="col-sm-8">
-                    <textarea name="sQueryPwd" class="form-control">[[*{sQueryPwd}]]</textarea>
+                    <input name="sQueryPwd" th:field="*{sQueryPwd}" class="form-control" type="text">
                 </div>
             </div>
-            <div class="form-group">
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">服务密码：</label>
+                <div class="col-sm-8">
+                    <input name="sServicePwd" th:field="*{sServicePwd}" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
                 <label class="col-sm-3 control-label">取款密码：</label>
                 <div class="col-sm-8">
-                    <textarea name="sAtmPwd" class="form-control">[[*{sAtmPwd}]]</textarea>
+                    <input name="sAtmPwd" th:field="*{sAtmPwd}" class="form-control" type="text">
                 </div>
             </div>
-            <div class="form-group">
+            <div class="form-group">    
                 <label class="col-sm-3 control-label">支付密码：</label>
                 <div class="col-sm-8">
-                    <textarea name="sPayPwd" class="form-control">[[*{sPayPwd}]]</textarea>
+                    <input name="sPayPwd" th:field="*{sPayPwd}" class="form-control" type="text">
                 </div>
             </div>
-            <div class="form-group">
+            <div class="form-group">    
                 <label class="col-sm-3 control-label">图形密码：</label>
                 <div class="col-sm-8">
-                    <textarea name="sGraphicPwd" class="form-control">[[*{sGraphicPwd}]]</textarea>
+                    <input name="sGraphicPwd" th:field="*{sGraphicPwd}" class="form-control" type="text">
                 </div>
             </div>
-            <div class="form-group">
+            <div class="form-group">    
                 <label class="col-sm-3 control-label">指纹密码：</label>
                 <div class="col-sm-8">
-                    <textarea name="sFingerPwd" class="form-control">[[*{sFingerPwd}]]</textarea>
+                    <input name="sFingerPwd" th:field="*{sFingerPwd}" class="form-control" type="text" placeholder="请输入手指名称，多个用逗号分隔">
                 </div>
             </div>
             <div class="form-group">    
@@ -98,40 +104,40 @@
                     <input name="sIdcardName" th:field="*{sIdcardName}" class="form-control" type="text">
                 </div>
             </div>
-            <div class="form-group">
+            <div class="form-group">    
                 <label class="col-sm-3 control-label">密码提示问题1：</label>
                 <div class="col-sm-8">
-                    <textarea name="sQuestion1" class="form-control">[[*{sQuestion1}]]</textarea>
+                    <input name="sQuestion1" th:field="*{sQuestion1}" class="form-control" type="text">
                 </div>
             </div>
-            <div class="form-group">
+            <div class="form-group">    
                 <label class="col-sm-3 control-label">密码提示答案1：</label>
                 <div class="col-sm-8">
-                    <textarea name="sAnswer1" class="form-control">[[*{sAnswer1}]]</textarea>
+                    <input name="sAnswer1" th:field="*{sAnswer1}" class="form-control" type="text">
                 </div>
             </div>
-            <div class="form-group">
+            <div class="form-group">    
                 <label class="col-sm-3 control-label">密码提示问题2：</label>
                 <div class="col-sm-8">
-                    <textarea name="sQuestion2" class="form-control">[[*{sQuestion2}]]</textarea>
+                    <input name="sQuestion2" th:field="*{sQuestion2}" class="form-control" type="text">
                 </div>
             </div>
-            <div class="form-group">
+            <div class="form-group">    
                 <label class="col-sm-3 control-label">密码提示答案2：</label>
                 <div class="col-sm-8">
-                    <textarea name="sAnswer2" class="form-control">[[*{sAnswer2}]]</textarea>
+                    <input name="sAnswer2" th:field="*{sAnswer2}" class="form-control" type="text">
                 </div>
             </div>
-            <div class="form-group">
+            <div class="form-group">    
                 <label class="col-sm-3 control-label">密码提示问题3：</label>
                 <div class="col-sm-8">
-                    <textarea name="sQuestion3" class="form-control">[[*{sQuestion3}]]</textarea>
+                    <input name="sQuestion3" th:field="*{sQuestion3}" class="form-control" type="text">
                 </div>
             </div>
-            <div class="form-group">
+            <div class="form-group">    
                 <label class="col-sm-3 control-label">密码提示答案3：</label>
                 <div class="col-sm-8">
-                    <textarea name="sAnswer3" class="form-control">[[*{sAnswer3}]]</textarea>
+                    <input name="sAnswer3" th:field="*{sAnswer3}" class="form-control" type="text">
                 </div>
             </div>
             <div class="form-group">

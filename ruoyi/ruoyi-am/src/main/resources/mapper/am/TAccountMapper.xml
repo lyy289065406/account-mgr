@@ -6,7 +6,6 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     
     <resultMap type="TAccount" id="TAccountResult">
         <result property="iId"    column="i_id"    />
-        <result property="iUserId"    column="i_user_id"    />
         <result property="sAppname"    column="s_appname"    />
         <result property="sSite1"    column="s_site_1"    />
         <result property="sSite2"    column="s_site_2"    />
@@ -14,6 +13,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         <result property="sUsername"    column="s_username"    />
         <result property="sPassword"    column="s_password"    />
         <result property="sQueryPwd"    column="s_query_pwd"    />
+        <result property="sServicePwd"    column="s_service_pwd"    />
         <result property="sAtmPwd"    column="s_atm_pwd"    />
         <result property="sPayPwd"    column="s_pay_pwd"    />
         <result property="sGraphicPwd"    column="s_graphic_pwd"    />
@@ -33,36 +33,36 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     </resultMap>
 
     <sql id="selectTAccountVo">
-        select i_id, i_user_id, s_appname, s_site_1, s_site_2, s_site_3, s_username, s_password, s_query_pwd, s_atm_pwd, s_pay_pwd, s_graphic_pwd, s_finger_pwd, s_email, s_phone, s_idcard_num, s_idcard_name, s_question_1, s_answer_1, s_question_2, s_answer_2, s_question_3, s_answer_3, s_remark, d_update_time from t_account
+        select i_id, s_appname, s_site_1, s_site_2, s_site_3, s_username, s_password, s_query_pwd, s_service_pwd, s_atm_pwd, s_pay_pwd, s_graphic_pwd, s_finger_pwd, s_email, s_phone, s_idcard_num, s_idcard_name, s_question_1, s_answer_1, s_question_2, s_answer_2, s_question_3, s_answer_3, s_remark, d_update_time from t_account
     </sql>
 
     <select id="selectTAccountList" parameterType="TAccount" resultMap="TAccountResult">
         <include refid="selectTAccountVo"/>
         <where>  
-            <if test="iUserId != null "> and i_user_id = #{iUserId}</if>
             <if test="sAppname != null  and sAppname != ''"> and s_appname like concat('%', #{sAppname}, '%')</if>
-            <if test="sSite1 != null  and sSite1 != ''"> and s_site_1 = #{sSite1}</if>
-            <if test="sSite2 != null  and sSite2 != ''"> and s_site_2 = #{sSite2}</if>
-            <if test="sSite3 != null  and sSite3 != ''"> and s_site_3 = #{sSite3}</if>
+            <if test="sSite1 != null  and sSite1 != ''"> and s_site_1 like concat('%', #{sSite1}, '%')</if>
+            <if test="sSite2 != null  and sSite2 != ''"> and s_site_2 like concat('%', #{sSite2}, '%')</if>
+            <if test="sSite3 != null  and sSite3 != ''"> and s_site_3 like concat('%', #{sSite3}, '%')</if>
             <if test="sUsername != null  and sUsername != ''"> and s_username like concat('%', #{sUsername}, '%')</if>
-            <if test="sPassword != null  and sPassword != ''"> and s_password = #{sPassword}</if>
-            <if test="sQueryPwd != null  and sQueryPwd != ''"> and s_query_pwd = #{sQueryPwd}</if>
-            <if test="sAtmPwd != null  and sAtmPwd != ''"> and s_atm_pwd = #{sAtmPwd}</if>
-            <if test="sPayPwd != null  and sPayPwd != ''"> and s_pay_pwd = #{sPayPwd}</if>
-            <if test="sGraphicPwd != null  and sGraphicPwd != ''"> and s_graphic_pwd = #{sGraphicPwd}</if>
-            <if test="sFingerPwd != null  and sFingerPwd != ''"> and s_finger_pwd = #{sFingerPwd}</if>
-            <if test="sEmail != null  and sEmail != ''"> and s_email = #{sEmail}</if>
-            <if test="sPhone != null  and sPhone != ''"> and s_phone = #{sPhone}</if>
-            <if test="sIdcardNum != null  and sIdcardNum != ''"> and s_idcard_num = #{sIdcardNum}</if>
+            <if test="sPassword != null  and sPassword != ''"> and s_password like concat('%', #{sPassword}, '%')</if>
+            <if test="sQueryPwd != null  and sQueryPwd != ''"> and s_query_pwd like concat('%', #{sQueryPwd}, '%')</if>
+            <if test="sServicePwd != null  and sServicePwd != ''"> and s_service_pwd like concat('%', #{sServicePwd}, '%')</if>
+            <if test="sAtmPwd != null  and sAtmPwd != ''"> and s_atm_pwd like concat('%', #{sAtmPwd}, '%')</if>
+            <if test="sPayPwd != null  and sPayPwd != ''"> and s_pay_pwd like concat('%', #{sPayPwd}, '%')</if>
+            <if test="sGraphicPwd != null  and sGraphicPwd != ''"> and s_graphic_pwd like concat('%', #{sGraphicPwd}, '%')</if>
+            <if test="sFingerPwd != null  and sFingerPwd != ''"> and s_finger_pwd like concat('%', #{sFingerPwd}, '%')</if>
+            <if test="sEmail != null  and sEmail != ''"> and s_email like concat('%', #{sEmail}, '%')</if>
+            <if test="sPhone != null  and sPhone != ''"> and s_phone like concat('%', #{sPhone}, '%')</if>
+            <if test="sIdcardNum != null  and sIdcardNum != ''"> and s_idcard_num like concat('%', #{sIdcardNum}, '%')</if>
             <if test="sIdcardName != null  and sIdcardName != ''"> and s_idcard_name like concat('%', #{sIdcardName}, '%')</if>
-            <if test="sQuestion1 != null  and sQuestion1 != ''"> and s_question_1 = #{sQuestion1}</if>
-            <if test="sAnswer1 != null  and sAnswer1 != ''"> and s_answer_1 = #{sAnswer1}</if>
-            <if test="sQuestion2 != null  and sQuestion2 != ''"> and s_question_2 = #{sQuestion2}</if>
-            <if test="sAnswer2 != null  and sAnswer2 != ''"> and s_answer_2 = #{sAnswer2}</if>
-            <if test="sQuestion3 != null  and sQuestion3 != ''"> and s_question_3 = #{sQuestion3}</if>
-            <if test="sAnswer3 != null  and sAnswer3 != ''"> and s_answer_3 = #{sAnswer3}</if>
-            <if test="sRemark != null  and sRemark != ''"> and s_remark = #{sRemark}</if>
-            <if test="dUpdateTime != null "> and d_update_time = #{dUpdateTime}</if>
+            <if test="sQuestion1 != null  and sQuestion1 != ''"> and s_question_1 like concat('%', #{sQuestion1}, '%')</if>
+            <if test="sAnswer1 != null  and sAnswer1 != ''"> and s_answer_1 like concat('%', #{sAnswer1}, '%')</if>
+            <if test="sQuestion2 != null  and sQuestion2 != ''"> and s_question_2 like concat('%', #{sQuestion2}, '%')</if>
+            <if test="sAnswer2 != null  and sAnswer2 != ''"> and s_answer_2 like concat('%', #{sAnswer2}, '%')</if>
+            <if test="sQuestion3 != null  and sQuestion3 != ''"> and s_question_3 like concat('%', #{sQuestion3}, '%')</if>
+            <if test="sAnswer3 != null  and sAnswer3 != ''"> and s_answer_3 like concat('%', #{sAnswer3}, '%')</if>
+            <if test="sRemark != null  and sRemark != ''"> and s_remark like concat('%', #{sRemark}, '%')</if>
+            <if test="dUpdateTime != null "> and d_update_time &lt;= #{dUpdateTime}</if>
         </where>
     </select>
     
@@ -74,7 +74,6 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     <insert id="insertTAccount" parameterType="TAccount" useGeneratedKeys="true" keyProperty="iId">
         insert into t_account
         <trim prefix="(" suffix=")" suffixOverrides=",">
-            <if test="iUserId != null">i_user_id,</if>
             <if test="sAppname != null">s_appname,</if>
             <if test="sSite1 != null">s_site_1,</if>
             <if test="sSite2 != null">s_site_2,</if>
@@ -82,6 +81,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="sUsername != null">s_username,</if>
             <if test="sPassword != null">s_password,</if>
             <if test="sQueryPwd != null">s_query_pwd,</if>
+            <if test="sServicePwd != null">s_service_pwd,</if>
             <if test="sAtmPwd != null">s_atm_pwd,</if>
             <if test="sPayPwd != null">s_pay_pwd,</if>
             <if test="sGraphicPwd != null">s_graphic_pwd,</if>
@@ -100,7 +100,6 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="dUpdateTime != null">d_update_time,</if>
          </trim>
         <trim prefix="values (" suffix=")" suffixOverrides=",">
-            <if test="iUserId != null">#{iUserId},</if>
             <if test="sAppname != null">#{sAppname},</if>
             <if test="sSite1 != null">#{sSite1},</if>
             <if test="sSite2 != null">#{sSite2},</if>
@@ -108,6 +107,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="sUsername != null">#{sUsername},</if>
             <if test="sPassword != null">#{sPassword},</if>
             <if test="sQueryPwd != null">#{sQueryPwd},</if>
+            <if test="sServicePwd != null">#{sServicePwd},</if>
             <if test="sAtmPwd != null">#{sAtmPwd},</if>
             <if test="sPayPwd != null">#{sPayPwd},</if>
             <if test="sGraphicPwd != null">#{sGraphicPwd},</if>
@@ -130,7 +130,6 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     <update id="updateTAccount" parameterType="TAccount">
         update t_account
         <trim prefix="SET" suffixOverrides=",">
-            <if test="iUserId != null">i_user_id = #{iUserId},</if>
             <if test="sAppname != null">s_appname = #{sAppname},</if>
             <if test="sSite1 != null">s_site_1 = #{sSite1},</if>
             <if test="sSite2 != null">s_site_2 = #{sSite2},</if>
@@ -138,6 +137,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="sUsername != null">s_username = #{sUsername},</if>
             <if test="sPassword != null">s_password = #{sPassword},</if>
             <if test="sQueryPwd != null">s_query_pwd = #{sQueryPwd},</if>
+            <if test="sServicePwd != null">s_service_pwd = #{sServicePwd},</if>
             <if test="sAtmPwd != null">s_atm_pwd = #{sAtmPwd},</if>
             <if test="sPayPwd != null">s_pay_pwd = #{sPayPwd},</if>
             <if test="sGraphicPwd != null">s_graphic_pwd = #{sGraphicPwd},</if>

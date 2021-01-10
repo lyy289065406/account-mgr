@@ -20,24 +20,20 @@ public class TAccount extends BaseEntity
     /** 账号ID */
     private Long iId;
 
-    /** 外键ID-关联sys_user表 */
-    @Excel(name = "外键ID-关联sys_user表")
-    private Long iUserId;
-
     /** 应用名称 */
     @Excel(name = "应用名称")
     private String sAppname;
 
-    /** 应用站点1 */
-    @Excel(name = "应用站点1")
+    /** 主站URL */
+    @Excel(name = "主站URL")
     private String sSite1;
 
-    /** 应用站点2 */
-    @Excel(name = "应用站点2")
+    /** 子站URL */
+    @Excel(name = "子站URL")
     private String sSite2;
 
-    /** 应用站点3 */
-    @Excel(name = "应用站点3")
+    /** 备用URL */
+    @Excel(name = "备用URL")
     private String sSite3;
 
     /** 登录账号 */
@@ -51,6 +47,10 @@ public class TAccount extends BaseEntity
     /** 查询密码 */
     @Excel(name = "查询密码")
     private String sQueryPwd;
+
+    /** 服务密码 */
+    @Excel(name = "服务密码")
+    private String sServicePwd;
 
     /** 取款密码 */
     @Excel(name = "取款密码")
@@ -126,15 +126,6 @@ public class TAccount extends BaseEntity
     {
         return iId;
     }
-    public void setiUserId(Long iUserId) 
-    {
-        this.iUserId = iUserId;
-    }
-
-    public Long getiUserId() 
-    {
-        return iUserId;
-    }
     public void setsAppname(String sAppname) 
     {
         this.sAppname = sAppname;
@@ -197,6 +188,15 @@ public class TAccount extends BaseEntity
     public String getsQueryPwd() 
     {
         return sQueryPwd;
+    }
+    public void setsServicePwd(String sServicePwd) 
+    {
+        this.sServicePwd = sServicePwd;
+    }
+
+    public String getsServicePwd() 
+    {
+        return sServicePwd;
     }
     public void setsAtmPwd(String sAtmPwd) 
     {
@@ -347,7 +347,6 @@ public class TAccount extends BaseEntity
     public String toString() {
         return new ToStringBuilder(this,ToStringStyle.MULTI_LINE_STYLE)
             .append("iId", getiId())
-            .append("iUserId", getiUserId())
             .append("sAppname", getsAppname())
             .append("sSite1", getsSite1())
             .append("sSite2", getsSite2())
@@ -355,6 +354,7 @@ public class TAccount extends BaseEntity
             .append("sUsername", getsUsername())
             .append("sPassword", getsPassword())
             .append("sQueryPwd", getsQueryPwd())
+            .append("sServicePwd", getsServicePwd())
             .append("sAtmPwd", getsAtmPwd())
             .append("sPayPwd", getsPayPwd())
             .append("sGraphicPwd", getsGraphicPwd())

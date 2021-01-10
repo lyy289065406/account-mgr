@@ -15,20 +15,12 @@
                                 <input type="text" name="sAppname"/>
                             </li>
                             <li>
-                                <label>绑定邮箱：</label>
-                                <input type="text" name="sEmail"/>
+                                <label>主站URL：</label>
+                                <input type="text" name="sSite1"/>
                             </li>
                             <li>
-                                <label>绑定手机：</label>
-                                <input type="text" name="sPhone"/>
-                            </li>
-                            <li>
-                                <label>绑定身份证号：</label>
-                                <input type="text" name="sIdcardNum"/>
-                            </li>
-                            <li>
-                                <label>绑定身份证名：</label>
-                                <input type="text" name="sIdcardName"/>
+                                <label>录入时间：</label>
+                                <input type="text" class="time-input" placeholder="筛选此前录入的数据" name="dUpdateTime"/>
                             </li>
                             <li>
                                 <a class="btn btn-primary btn-rounded btn-sm" onclick="$.table.search()"><i class="fa fa-search"></i>&nbsp;搜索</a>
@@ -81,25 +73,22 @@
                     visible: false
                 },
                 {
-                    field: 'iUserId',
-                    title: '外键ID-关联sys_user表',
-                    visible: false
-                },
-                {
                     field: 'sAppname',
                     title: '应用名称'
                 },
                 {
                     field: 'sSite1',
-                    title: '应用站点1'
+                    title: '主站URL'
                 },
                 {
                     field: 'sSite2',
-                    title: '应用站点2'
+                    title: '子站URL',
+                    visible: false
                 },
                 {
                     field: 'sSite3',
-                    title: '应用站点3'
+                    title: '备用URL',
+                    visible: false
                 },
                 {
                     field: 'sUsername',
@@ -107,27 +96,38 @@
                 },
                 {
                     field: 'sPassword',
-                    title: '登录密码'
+                    title: '登录密码',
+                    visible: false
                 },
                 {
                     field: 'sQueryPwd',
-                    title: '查询密码'
+                    title: '查询密码',
+                    visible: false
+                },
+                {
+                    field: 'sServicePwd',
+                    title: '服务密码',
+                    visible: false
                 },
                 {
                     field: 'sAtmPwd',
-                    title: '取款密码'
+                    title: '取款密码',
+                    visible: false
                 },
                 {
                     field: 'sPayPwd',
-                    title: '支付密码'
+                    title: '支付密码',
+                    visible: false
                 },
                 {
                     field: 'sGraphicPwd',
-                    title: '图形密码'
+                    title: '图形密码',
+                    visible: false
                 },
                 {
                     field: 'sFingerPwd',
-                    title: '指纹密码'
+                    title: '指纹密码',
+                    visible: false
                 },
                 {
                     field: 'sEmail',
@@ -139,43 +139,53 @@
                 },
                 {
                     field: 'sIdcardNum',
-                    title: '绑定身份证号'
+                    title: '绑定身份证号',
+                    visible: false
                 },
                 {
                     field: 'sIdcardName',
-                    title: '绑定身份证名'
+                    title: '绑定身份证名',
+                    visible: false
                 },
                 {
                     field: 'sQuestion1',
-                    title: '密码提示问题1'
+                    title: '密码提示问题1',
+                    visible: false
                 },
                 {
                     field: 'sAnswer1',
-                    title: '密码提示答案1'
+                    title: '密码提示答案1',
+                    visible: false
                 },
                 {
                     field: 'sQuestion2',
-                    title: '密码提示问题2'
+                    title: '密码提示问题2',
+                    visible: false
                 },
                 {
                     field: 'sAnswer2',
-                    title: '密码提示答案2'
+                    title: '密码提示答案2',
+                    visible: false
                 },
                 {
                     field: 'sQuestion3',
-                    title: '密码提示问题3'
+                    title: '密码提示问题3',
+                    visible: false
                 },
                 {
                     field: 'sAnswer3',
-                    title: '密码提示答案3'
+                    title: '密码提示答案3',
+                    visible: false
                 },
                 {
                     field: 'sRemark',
-                    title: '备注'
+                    title: '备注',
+                    visible: false
                 },
                 {
                     field: 'dUpdateTime',
-                    title: '最后修改时间'
+                    title: '最后修改时间',
+                    visible: false
                 },
                 {
                     title: '操作',
