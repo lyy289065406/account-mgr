@@ -5,7 +5,7 @@
 
 version: '2'
 services:
-  ruoyi:
+  am:
     hostname: ACCOUNT_MGR
     container_name: ACCOUNT_MGR
     build:
