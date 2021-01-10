@@ -16,10 +16,10 @@ if(!$script_name) {
     docker-compose up -d
 
 } elseif($script_name -eq "init") {
-    docker exec -u mysql ACCOUNT_MGR /bin/bash -c "mysql -uroot -p123456 -e 'source /tmp/sql/init.sql'"
+    docker exec -u mysql ACCOUNT_MGR /bin/bash -c "mysql -uroot -p123456 -e 'source /var/sql/init.sql'"
     docker exec -u mysql ACCOUNT_MGR /bin/bash -c "mysql -uroot -p123456 -e 'source /opt/ruoyi/sql/ry_20201214.sql'"
     docker exec -u mysql ACCOUNT_MGR /bin/bash -c "mysql -uroot -p123456 -e 'source /opt/ruoyi/sql/quartz.sql'"
-    docker exec -u mysql ACCOUNT_MGR /bin/bash -c "mysql -uroot -p123456 -e 'source /tmp/sql/am.sql'"
+    docker exec -u mysql ACCOUNT_MGR /bin/bash -c "mysql -uroot -p123456 -e 'source /var/sql/am.sql'"
 
 } elseif($script_name -eq "cln" -Or $script_name -eq "clean") {
     docker exec -u root ACCOUNT_MGR /bin/bash -c "/run/ruoyi/clean.sh"
