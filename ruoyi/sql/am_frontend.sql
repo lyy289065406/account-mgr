@@ -2,7 +2,7 @@ use account_mgr;
 
 -- 菜单 SQL
 insert into sys_menu (menu_name, parent_id, order_num, url, menu_type, visible, perms, icon, create_by, create_time, update_by, update_time, remark)
-values('应用账密', '', '1', '/am/account', 'C', '0', 'am:account:view', '#', 'admin', sysdate(), '', null, '应用账密菜单');
+values('应用账密', '4', '1', '/am/account', 'C', '0', 'am:account:view', '#', 'admin', sysdate(), '', null, '应用账密菜单');
 
 -- 按钮父菜单ID
 SELECT @parentId := LAST_INSERT_ID();
