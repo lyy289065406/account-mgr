@@ -19,7 +19,7 @@ services:
       - ./env/mysql/sql/:/var/sql/
       - ./env/maven/repo/:/root/.m2/repository
       - ./ruoyi/:/opt/ruoyi/
-      - ./bin/:/run/ruoyi/
+      - ./bin/:/run/ruoyi/bin/
     ports:
       - 8088:80
       - 3306:3306

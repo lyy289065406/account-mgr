@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="zh" xmlns:th="http://www.thymeleaf.org" xmlns:shiro="http://www.pollix.at/thymeleaf/shiro">
+<head>
+    <th:block th:include="include :: header('应用账密列表')" />
+</head>
+<body class="gray-bg">
+     <div class="container-div">
+        <div class="row">
+            <div class="col-sm-12 search-collapse">
+                <form id="formId">
+                    <div class="select-list">
+                        <ul>
+                            <li>
+                                <label>外键ID-关联sys_user表：</label>
+                                <input type="text" name="iUserId"/>
+                            </li>
+                            <li>
+                                <label>应用名称：</label>
+                                <input type="text" name="sAppname"/>
+                            </li>
+                            <li>
+                                <label>绑定邮箱：</label>
+                                <input type="text" name="sEmail"/>
+                            </li>
+                            <li>
+                                <label>绑定手机：</label>
+                                <input type="text" name="sPhone"/>
+                            </li>
+                            <li>
+                                <label>绑定身份证号：</label>
+                                <input type="text" name="sIdcardNum"/>
+                            </li>
+                            <li>
+                                <label>绑定身份证名：</label>
+                                <input type="text" name="sIdcardName"/>
+                            </li>
+                            <li>
+                                <label>最后修改时间：</label>
+                                <input type="text" class="time-input" placeholder="请选择最后修改时间" name="dUpdateTime"/>
+                            </li>
+                            <li>
+                                <a class="btn btn-primary btn-rounded btn-sm" onclick="$.table.search()"><i class="fa fa-search"></i>&nbsp;搜索</a>
+                                <a class="btn btn-warning btn-rounded btn-sm" onclick="$.form.reset()"><i class="fa fa-refresh"></i>&nbsp;重置</a>
+                            </li>
+                        </ul>
+                    </div>
+                </form>
+            </div>
+
+            <div class="btn-group-sm" id="toolbar" role="group">
+                <a class="btn btn-success" onclick="$.operate.add()" shiro:hasPermission="am:account:add">
+                    <i class="fa fa-plus"></i> 添加
+                </a>
+                <a class="btn btn-primary single disabled" onclick="$.operate.edit()" shiro:hasPermission="am:account:edit">
+                    <i class="fa fa-edit"></i> 修改
+                </a>
+                <a class="btn btn-danger multiple disabled" onclick="$.operate.removeAll()" shiro:hasPermission="am:account:remove">
+                    <i class="fa fa-remove"></i> 删除
+                </a>
+                <a class="btn btn-warning" onclick="$.table.exportExcel()" shiro:hasPermission="am:account:export">
+                    <i class="fa fa-download"></i> 导出
+                </a>
+            </div>
+            <div class="col-sm-12 select-table table-striped">
+                <table id="bootstrap-table"></table>
+            </div>
+        </div>
+    </div>
+    <th:block th:include="include :: footer" />
+    <script th:inline="javascript">
+        var editFlag = [[${@permission.hasPermi('am:account:edit')}]];
+        var removeFlag = [[${@permission.hasPermi('am:account:remove')}]];
+        var prefix = ctx + "am/account";
+
+        $(function() {
+            var options = {
+                url: prefix + "/list",
+                createUrl: prefix + "/add",
+                updateUrl: prefix + "/edit/{id}",
+                removeUrl: prefix + "/remove",
+                exportUrl: prefix + "/export",
+                modalName: "应用账密",
+                columns: [{
+                    checkbox: true
+                },
+                {
+                    field: 'iId',
+                    title: '账号ID',
+                    visible: false
+                },
+                {
+                    field: 'iUserId',
+                    title: '外键ID-关联sys_user表'
+                },
+                {
+                    field: 'sAppname',
+                    title: '应用名称'
+                },
+                {
+                    field: 'sSite1',
+                    title: '应用站点1'
+                },
+                {
+                    field: 'sSite2',
+                    title: '应用站点2'
+                },
+                {
+                    field: 'sSite3',
+                    title: '应用站点3'
+                },
+                {
+                    field: 'sUsername',
+                    title: '登录账号'
+                },
+                {
+                    field: 'sPassword',
+                    title: '登录密码'
+                },
+                {
+                    field: 'sQueryPwd',
+                    title: '查询密码'
+                },
+                {
+                    field: 'sAtmPwd',
+                    title: '取款密码'
+                },
+                {
+                    field: 'sPayPwd',
+                    title: '支付密码'
+                },
+                {
+                    field: 'sGraphicPwd',
+                    title: '图形密码'
+                },
+                {
+                    field: 'sFingerPwd',
+                    title: '指纹密码'
+                },
+                {
+                    field: 'sEmail',
+                    title: '绑定邮箱'
+                },
+                {
+                    field: 'sPhone',
+                    title: '绑定手机'
+                },
+                {
+                    field: 'sIdcardNum',
+                    title: '绑定身份证号'
+                },
+                {
+                    field: 'sIdcardName',
+                    title: '绑定身份证名'
+                },
+                {
+                    field: 'sQuestion1',
+                    title: '密码提示问题1'
+                },
+                {
+                    field: 'sAnswer1',
+                    title: '密码提示答案1'
+                },
+                {
+                    field: 'sQuestion2',
+                    title: '密码提示问题2'
+                },
+                {
+                    field: 'sAnswer2',
+                    title: '密码提示答案2'
+                },
+                {
+                    field: 'sQuestion3',
+                    title: '密码提示问题3'
+                },
+                {
+                    field: 'sAnswer3',
+                    title: '密码提示答案3'
+                },
+                {
+                    field: 'sRemark',
+                    title: '备注'
+                },
+                {
+                    field: 'dUpdateTime',
+                    title: '最后修改时间'
+                },
+                {
+                    title: '操作',
+                    align: 'center',
+                    formatter: function(value, row, index) {
+                        var actions = [];
+                        actions.push('<a class="btn btn-success btn-xs ' + editFlag + '" href="javascript:void(0)" onclick="$.operate.edit(\'' + row.iId + '\')"><i class="fa fa-edit"></i>编辑</a> ');
+                        actions.push('<a class="btn btn-danger btn-xs ' + removeFlag + '" href="javascript:void(0)" onclick="$.operate.remove(\'' + row.iId + '\')"><i class="fa fa-remove"></i>删除</a>');
+                        return actions.join('');
+                    }
+                }]
+            };
+            $.table.init(options);
+        });
+    </script>
+</body>
+</html>

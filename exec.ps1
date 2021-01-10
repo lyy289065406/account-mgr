@@ -19,19 +19,20 @@ if(!$script_name) {
     docker exec -u mysql ACCOUNT_MGR /bin/bash -c "mysql -uroot -p123456 -e 'source /var/sql/init.sql'"
     docker exec -u mysql ACCOUNT_MGR /bin/bash -c "mysql -uroot -p123456 -e 'source /opt/ruoyi/sql/ry_20201214.sql'"
     docker exec -u mysql ACCOUNT_MGR /bin/bash -c "mysql -uroot -p123456 -e 'source /opt/ruoyi/sql/quartz.sql'"
-    docker exec -u mysql ACCOUNT_MGR /bin/bash -c "mysql -uroot -p123456 -e 'source /var/sql/am.sql'"
+    docker exec -u mysql ACCOUNT_MGR /bin/bash -c "mysql -uroot -p123456 -e 'source /opt/ruoyi/sql/am_backend.sql'"
+    docker exec -u mysql ACCOUNT_MGR /bin/bash -c "mysql -uroot -p123456 -e 'source /opt/ruoyi/sql/am_frontend.sql'"
 
 } elseif($script_name -eq "cln" -Or $script_name -eq "clean") {
-    docker exec -u root ACCOUNT_MGR /bin/bash -c "/run/ruoyi/clean.sh"
+    docker exec -u root ACCOUNT_MGR /bin/bash -c "/run/ruoyi/bin/clean.sh"
 
 } elseif($script_name -eq "pkg" -Or $script_name -eq "package") {
-    docker exec -u root ACCOUNT_MGR /bin/bash -c "/run/ruoyi/package.sh"
+    docker exec -u root ACCOUNT_MGR /bin/bash -c "/run/ruoyi/bin/package.sh"
 
 } elseif($script_name -eq "run" -Or $script_name -eq "start") {
-    docker exec -u root ACCOUNT_MGR /bin/bash -c "/run/ruoyi/run.sh"
+    docker exec -u root ACCOUNT_MGR /bin/bash -c "/run/ruoyi/bin/run.sh"
 
 } elseif($script_name -eq "stop") {
-    docker exec -u root ACCOUNT_MGR /bin/bash -c "/run/ruoyi/stop.sh"
+    docker exec -u root ACCOUNT_MGR /bin/bash -c "/run/ruoyi/bin/stop.sh"
 
 } elseif($script_name -eq "down") {
     docker-compose down
