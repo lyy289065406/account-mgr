@@ -11,10 +11,6 @@
                     <div class="select-list">
                         <ul>
                             <li>
-                                <label>外键ID-关联sys_user表：</label>
-                                <input type="text" name="iUserId"/>
-                            </li>
-                            <li>
                                 <label>应用名称：</label>
                                 <input type="text" name="sAppname"/>
                             </li>
@@ -33,10 +29,6 @@
                             <li>
                                 <label>绑定身份证名：</label>
                                 <input type="text" name="sIdcardName"/>
-                            </li>
-                            <li>
-                                <label>最后修改时间：</label>
-                                <input type="text" class="time-input" placeholder="请选择最后修改时间" name="dUpdateTime"/>
                             </li>
                             <li>
                                 <a class="btn btn-primary btn-rounded btn-sm" onclick="$.table.search()"><i class="fa fa-search"></i>&nbsp;搜索</a>
@@ -90,7 +82,8 @@
                 },
                 {
                     field: 'iUserId',
-                    title: '外键ID-关联sys_user表'
+                    title: '外键ID-关联sys_user表',
+                    visible: false
                 },
                 {
                     field: 'sAppname',
