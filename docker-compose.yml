@@ -15,7 +15,10 @@ services:
       MYSQL_ROOT_PASSWORD: 123456
     volumes:
       - ./env/mysql/data/:/var/lib/mysql/
-      - ./ruoyi:/opt/ruoyi/
+      - ./env/mysql/init.sql:/tmp/init.sql
+      - ./env/maven/repo/:/root/.m2/repository
+      - ./ruoyi/:/opt/ruoyi/
+      - ./bin/:/run/ruoyi/
     ports:
       - 8088:80
       - 3306:3306
