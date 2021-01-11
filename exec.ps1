@@ -1,6 +1,7 @@
 param([string]$script_name="")
 
-if(!$script_name) {
+
+function help { 
     Write-Host "Usage: ./exec.ps1 [script_name]"
     Write-Host "script_name list :"
     Write-Host "  (1) up          :   build and up docker environment"
@@ -11,6 +12,11 @@ if(!$script_name) {
     Write-Host "  (6) stop        :   stop the application"
     Write-Host "  (7) down        :   stop environment"
     Write-Host "  (*) shell/bash  :   switch to docker environment (container shell)"
+}
+
+
+if(!$script_name) {
+    help
 
 } elseif($script_name -eq "up") {
     docker-compose up -d
@@ -39,5 +45,8 @@ if(!$script_name) {
 
 } elseif($script_name -eq "shell" -Or $script_name -eq "bash") {
     docker exec -it -u root ACCOUNT_MGR /bin/bash
+
+else {
+    help
 }
 
